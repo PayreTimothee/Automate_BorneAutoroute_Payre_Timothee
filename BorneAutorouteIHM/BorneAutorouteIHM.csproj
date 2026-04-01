@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Ressources\Fente.png" />
+    <None Remove="Ressources\Images\BoutonHelp.png" />
+    <None Remove="Ressources\Images\BoutonHelpClick.png" />
+    <None Remove="Ressources\Images\BoutonRouge.png" />
+    <None Remove="Ressources\Images\BoutonRougeClick.png" />
+    <None Remove="Ressources\Images\BoutonVert.png" />
+    <None Remove="Ressources\Images\BoutonVertClick.png" />
+    <None Remove="Ressources\Images\CarteBancaire.png" />
+    <None Remove="Ressources\Images\CarteBancaireFaux.png" />
+    <None Remove="Ressources\Images\Recu.png" />
+    <None Remove="Ressources\Images\SansContact.png" />
+    <None Remove="Ressources\Images\Ticket.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Ressources\Images\Recu.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Ressources\Images\Ticket.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BorneAutorouteEXCEPTION\BorneAutorouteEXCEPTION.csproj" />
+    <ProjectReference Include="..\BorneAutorouteVM\BorneAutorouteVM.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Ressources\Images\BoutonHelp.png" />
+    <Resource Include="Ressources\Images\BoutonHelpClick.png" />
+    <Resource Include="Ressources\Images\BoutonRouge.png" />
+    <Resource Include="Ressources\Images\BoutonRougeClick.png" />
+    <Resource Include="Ressources\Images\BoutonVert.png" />
+    <Resource Include="Ressources\Images\BoutonVertClick.png" />
+    <Resource Include="Ressources\Images\CarteBancaire.png" />
+    <Resource Include="Ressources\Images\CarteBancaireFaux.png" />
+    <Resource Include="Ressources\Images\Fente.png" />
+    <Resource Include="Ressources\Images\SansContact.png" />
+  </ItemGroup>
+
+</Project>
