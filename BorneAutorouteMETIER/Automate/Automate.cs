@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using BorneAutorouteMETIER.Automate.Etats;
 
 namespace BorneAutorouteMETIER.Automate
 {
@@ -22,6 +23,10 @@ namespace BorneAutorouteMETIER.Automate
         public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
+        /// Message à afficher pour l'état courant de la borne
+        /// </summary>
+        public string Message { get => this.etatcourant.Message; }
+        /// <summary>
         /// Nom de l'état courant de la borne
         /// </summary>
         public string NomEtat { get => this.etatcourant.Nom; }
@@ -33,6 +38,7 @@ namespace BorneAutorouteMETIER.Automate
         public Automate(Borne metier)
         {
             this.metier = metier;
+            this.etatcourant = new EtatAttenteClient(this.metier);
         }
 
         /// <summary>
@@ -42,7 +48,7 @@ namespace BorneAutorouteMETIER.Automate
         public void Activer(Evenement e)
         {
             this.etatcourant.Action(e);
-            //this.etatcourant = this.etatcourant.Transition(e);
+            this.etatcourant = this.etatcourant.Transistion(e);
             NotifyPropertyChanged("NomEtat");
         }
 

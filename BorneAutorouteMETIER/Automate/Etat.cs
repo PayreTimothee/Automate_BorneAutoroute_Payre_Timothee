@@ -25,6 +25,10 @@ namespace BorneAutorouteMETIER.Automate
         public abstract string Nom { get; }
 
         /// <summary>
+        /// Le message à afficher pour cet état
+        /// </summary>
+        public abstract string Message { get; }
+        /// <summary>
         /// Initialise l'état
         /// </summary>
         /// <param name="metier">le métier du programme</param>

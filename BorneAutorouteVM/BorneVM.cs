@@ -1,28 +1,42 @@
-﻿using BorneAutorouteMETIER;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using BorneAutorouteMETIER;
 using BorneAutorouteMETIER.Automate;
 using BorneAutorouteMETIER.Elements;
 using BorneAutorouteVM.VMSecondaires;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BorneAutorouteVM
 {
     /// <summary>
     /// Vue-Modèle de la borne autoroute
     /// </summary>
-    public class BorneVM
+    public class BorneVM : INotifyPropertyChanged
     {
         //La borne
         private Borne metier;
         private Automate automate;
 
         /// <summary>
+        /// Evenement d'observation
+        /// </summary>
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        /// <summary>
         /// Message de la borne
         /// </summary>
-        public string Message => "Aucun message :(";
+        public string Message
+        {
+            get => this.automate.Message;
+            set {
+                NotifyPropertyChanged("Message");
+            }
+        } 
+        
 
 
         /// <summary>
@@ -92,6 +106,11 @@ namespace BorneAutorouteVM
         /// <returns>Action valide ou non</returns>
         public void AppelHelp()
         {
+        }
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }

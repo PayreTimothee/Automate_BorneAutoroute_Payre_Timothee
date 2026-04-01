@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BorneAutorouteMETIER.Automate.EtatAttenteClient
+namespace BorneAutorouteMETIER.Automate.Etats
 {
     public class EtatAttenteClient : Etat
     {
@@ -13,6 +13,8 @@ namespace BorneAutorouteMETIER.Automate.EtatAttenteClient
         }
 
         public override string Nom => "AttenteClient";
+
+        public override string Message => "Bonjour, insérez votre ticket !";
 
         public override void Action(Evenement e)
         {

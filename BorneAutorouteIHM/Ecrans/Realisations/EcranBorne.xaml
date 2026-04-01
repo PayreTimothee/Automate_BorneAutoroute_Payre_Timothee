@@ -16,7 +16,7 @@
             </Grid.RowDefinitions>
             <Grid x:Name="PanelMessage" Grid.Row="0">
                 <Border x:Name="BorderZoneAffichage" BorderThickness="5" Height="100" Width="900">
-                    <TextBlock x:Name="ZoneAffichage" FontSize="40" FontFamily="Roboto" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock x:Name="ZoneAffichage" FontSize="40" FontFamily="Roboto" TextAlignment="Center" VerticalAlignment="Center" Text="{Binding Message}"></TextBlock>
                 </Border>
                 </Grid>
             <Canvas x:Name="PanelFront" Panel.ZIndex="1" Grid.Row="1" Grid.RowSpan="2">
