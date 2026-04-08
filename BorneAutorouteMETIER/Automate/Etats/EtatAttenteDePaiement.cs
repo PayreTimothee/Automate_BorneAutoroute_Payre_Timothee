@@ -12,7 +12,7 @@ namespace BorneAutorouteMETIER.Automate.Etats
     /// </summary>
     public class EtatAttenteDePaiement : Etat
     {
-        public EtatAttenteDePaiement(Borne metier) : base(metier)
+        public EtatAttenteDePaiement(Borne metier, Automate automate) : base(metier, automate)
         {
         }
 
@@ -31,7 +31,7 @@ namespace BorneAutorouteMETIER.Automate.Etats
             switch (e)
             {
                 case Evenement.PAIEMENT_SANS_CONTACT:
-                    etat = new EtatOuverture(Metier);
+                    etat = new EtatOuverture(Metier, Automate);
                     break;
                 default:
                     etat = this;

@@ -62,5 +62,15 @@ namespace BorneAutorouteMETIER
         {
             this.carteBancaireLueParSansContact = carteBancaire;
         }
+
+        /// <summary>
+        /// Reset la borne en retirant le ticket et les cartes bancaires présentes
+        /// </summary>
+        public void Reset()
+        {
+            this.ticket = null;
+            this.carteBancaire = null;
+            this.carteBancaireLueParSansContact = null;
+        }
     }
 }

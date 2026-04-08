@@ -11,7 +11,7 @@ namespace BorneAutorouteMETIER.Automate.Etats
     /// </summary>
     public class EtatAttenteClient : Etat
     {
-        public EtatAttenteClient(Borne metier) : base(metier)
+        public EtatAttenteClient(Borne metier, Automate automate) : base(metier,automate)
         {
         }
 
@@ -30,7 +30,7 @@ namespace BorneAutorouteMETIER.Automate.Etats
             switch (e)
             {
                 case Evenement.INSERTION_TICKET:
-                    etat = new EtatAttenteDePaiement(Metier);
+                    etat = new EtatAttenteDePaiement(Metier, Automate);
                     break;
                 default:
                     etat = this;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +14,9 @@ namespace BorneAutorouteMETIER.Automate
     {
         private Borne metier;
         private string nom;
+        private Automate automate;
 
+        protected Automate Automate => this.automate;
         /// <summary>
         /// Métier de la borne autoroute
         /// </summary>
@@ -32,9 +35,11 @@ namespace BorneAutorouteMETIER.Automate
         /// Initialise l'état
         /// </summary>
         /// <param name="metier">le métier du programme</param>
-        public Etat(Borne metier)
+        public Etat(Borne metier, Automate automate)
         {
             this.metier = metier;
+            this.automate = automate;
+
         }
 
         /// <summary>

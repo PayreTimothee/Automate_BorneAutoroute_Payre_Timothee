@@ -38,7 +38,7 @@ namespace BorneAutorouteMETIER.Automate
         public Automate(Borne metier)
         {
             this.metier = metier;
-            this.etatcourant = new EtatAttenteClient(this.metier);
+            this.etatcourant = new EtatAttenteClient(this.metier, this);
         }
 
         /// <summary>
