@@ -82,6 +82,8 @@ namespace BorneAutorouteVM
         /// <returns>Action valide ou non</returns>
         public void InsertionCarteBancaireSansContact(CarteBancaireVM carteBancaire)
         {
+            this.metier.LireCarteBancaireParSansContact(carteBancaire.Metier);
+            this.automate.Activer(Evenement.PAIEMENT_SANS_CONTACT);
         }
 
         /// <summary>

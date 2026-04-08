@@ -21,6 +21,11 @@ namespace BorneAutorouteMETIER
         private CarteBancaire? carteBancaireLueParSansContact;
 
         /// <summary>
+        /// Getteur du montant du ticket présent dans la machine, ou 0 si aucun ticket n'est présent
+        /// </summary>
+        public double Montant => this.ticket?.Montant ?? 0.0;
+
+        /// <summary>
         /// Insertion d'un ticket dans la machine
         /// </summary>
         /// <param name="ticket">Ticket inséré</param>

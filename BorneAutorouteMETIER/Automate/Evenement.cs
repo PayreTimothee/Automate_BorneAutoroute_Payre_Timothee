@@ -9,5 +9,6 @@ namespace BorneAutorouteMETIER.Automate
     public enum Evenement
     {
         INSERTION_TICKET,
+        PAIEMENT_SANS_CONTACT,
     }
 }

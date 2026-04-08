@@ -15,6 +15,7 @@ namespace BorneAutorouteMETIER.Elements
     {
         //Le ticket est-il dans la machine
         private bool estDansMachine;
+        private double montant;
 
         /// <summary>
         /// Le ticket est-il dans la machine
@@ -30,11 +31,22 @@ namespace BorneAutorouteMETIER.Elements
         }
 
         /// <summary>
+        /// Le montant du ticket
+        /// </summary>
+        public double Montant
+        {
+            get => montant;
+        }
+
+        /// <summary>
         /// Constructeur
         /// </summary>
         public Ticket()
         {
             this.estDansMachine = false;
+            Random random = new Random();
+            this.montant = 10 + random.NextDouble() * 10;
+            this.montant = Math.Round(this.montant, 2);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
