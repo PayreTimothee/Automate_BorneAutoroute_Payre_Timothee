@@ -12,5 +12,6 @@ namespace BorneAutorouteMETIER.Automate
         PAIEMENT_SANS_CONTACT,
         RESET,
         ANNULATION,
+        REESAYER_PAIEMENT,
     }
 }
