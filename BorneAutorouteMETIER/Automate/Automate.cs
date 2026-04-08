@@ -48,8 +48,9 @@ namespace BorneAutorouteMETIER.Automate
         public void Activer(Evenement e)
         {
             this.etatcourant.Action(e);
-            this.etatcourant = this.etatcourant.Transistion(e);
+            this.etatcourant = this.etatcourant.Transition(e);
             NotifyPropertyChanged("NomEtat");
+            NotifyPropertyChanged("Message");
         }
 
         /// <summary>

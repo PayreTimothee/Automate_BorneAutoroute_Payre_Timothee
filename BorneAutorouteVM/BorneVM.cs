@@ -32,9 +32,6 @@ namespace BorneAutorouteVM
         public string Message
         {
             get => this.automate.Message;
-            set {
-                NotifyPropertyChanged("Message");
-            }
         } 
         
 
@@ -46,6 +43,7 @@ namespace BorneAutorouteVM
         {
             this.metier = new Borne();
             this.automate = new Automate(this.metier);
+            this.automate.PropertyChanged += Automate_PropertyChanged;
         }
 
         /// <summary>
@@ -55,6 +53,8 @@ namespace BorneAutorouteVM
         /// <returns>Action valide ou non</returns>
         public void InsertionTicket(TicketVM ticket)
         {
+            this.metier.InsertionTicket(ticket.Metier);
+            this.automate.Activer(Evenement.INSERTION_TICKET);
         }
 
         /// <summary>
@@ -106,6 +106,23 @@ namespace BorneAutorouteVM
         /// <returns>Action valide ou non</returns>
         public void AppelHelp()
         {
+        }
+
+        /// <summary>
+        /// Méthode d'observation de changement de propriété de l'automate. Elle notifie les changements de Message et de NomEtat à la vue.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">l'évenement</param>
+        private void Automate_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "Message")
+            {
+                this.NotifyPropertyChanged("Message");
+            }
+            if (e.PropertyName == "NomEtat")
+            {
+                this.NotifyPropertyChanged("NomEtat");
+            }
         }
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")

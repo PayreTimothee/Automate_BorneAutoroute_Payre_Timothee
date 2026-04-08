@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BorneAutorouteMETIER.Automate.Etats
 {
+    /// <summary>
+    /// Etat d'attente du client, la borne attend que le client insère son ticket pour pouvoir ouvrir la barrière
+    /// </summary>
     public class EtatAttenteClient : Etat
     {
         public EtatAttenteClient(Borne metier) : base(metier)
@@ -21,9 +24,18 @@ namespace BorneAutorouteMETIER.Automate.Etats
             
         }
 
-        public override Etat Transistion(Evenement e)
+        public override Etat Transition(Evenement e)
         {
-            Etat etat = new EtatAttenteClient(this.Metier);
+            Etat etat = this;
+            switch (e)
+            {
+                case Evenement.INSERTION_TICKET:
+                    etat = new EtatOuverture(Metier);
+                    break;
+                default:
+                    etat = this;
+                    break;
+            }
             return etat;
         }
     }

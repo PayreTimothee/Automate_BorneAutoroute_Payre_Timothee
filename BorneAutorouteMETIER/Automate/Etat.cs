@@ -42,7 +42,7 @@ namespace BorneAutorouteMETIER.Automate
         /// </summary>
         /// <param name="e">L'evenement</param>
         /// <returns>un état</returns>
-        public abstract Etat Transistion(Evenement e);
+        public abstract Etat Transition(Evenement e);
 
         /// <summary>
         /// L'action à effectuer lors de l'entrée dans cet état en fonction de l'événement reçu

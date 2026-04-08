@@ -8,5 +8,6 @@ namespace BorneAutorouteMETIER.Automate
 {
     public enum Evenement
     {
+        INSERTION_TICKET,
     }
 }
