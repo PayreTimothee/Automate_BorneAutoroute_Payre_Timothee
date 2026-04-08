@@ -100,6 +100,7 @@ namespace BorneAutorouteVM
         /// <returns>Action valide ou non</returns>
         public void Annulation()
         {
+            this.automate.Activer(Evenement.ANNULATION);
         }
 
         /// <summary>

@@ -33,7 +33,7 @@ namespace BorneAutorouteMETIER
         public void InsertionTicket(Ticket ticket)
         {
             //Si un ticket est déjà présent
-            if(this.ticket != null) throw new TicketDejaPresentException();
+            if (this.ticket != null) throw new TicketDejaPresentException();
             //Sinon
             this.ticket = ticket;
             this.ticket.EstDansMachine = true;
@@ -47,7 +47,7 @@ namespace BorneAutorouteMETIER
         public void InsertionCarteBancaire(CarteBancaire carteBancaire)
         {
             //Si une CB est déjà présente
-            if(this.carteBancaire != null) throw new CarteBancaireDejaPresenteException();
+            if (this.carteBancaire != null) throw new CarteBancaireDejaPresenteException();
             //Sinon
             this.carteBancaire = carteBancaire;
             this.carteBancaire.EstDansMachine = true;
@@ -71,6 +71,18 @@ namespace BorneAutorouteMETIER
             this.ticket = null;
             this.carteBancaire = null;
             this.carteBancaireLueParSansContact = null;
+        }
+
+        /// <summary>
+        /// Annulation de la transaction en cours, qui ejecte le ticket
+        /// </summary>
+        public void Annulation()
+        {
+            if (this.ticket != null)
+            {
+                this.ticket.EstDansMachine = false;
+            }
+            this.Reset();
         }
     }
 }

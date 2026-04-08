@@ -11,5 +11,6 @@ namespace BorneAutorouteMETIER.Automate
         INSERTION_TICKET,
         PAIEMENT_SANS_CONTACT,
         RESET,
+        ANNULATION,
     }
 }

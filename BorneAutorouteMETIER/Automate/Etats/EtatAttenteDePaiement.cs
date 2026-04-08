@@ -33,6 +33,10 @@ namespace BorneAutorouteMETIER.Automate.Etats
                 case Evenement.PAIEMENT_SANS_CONTACT:
                     etat = new EtatOuverture(Metier, Automate);
                     break;
+                case Evenement.ANNULATION:
+                    this.Metier.Annulation();
+                    etat = new EtatAttenteClient(Metier, Automate);
+                    break;
                 default:
                     etat = this;
                     break;

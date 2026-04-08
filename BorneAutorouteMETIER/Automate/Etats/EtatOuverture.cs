@@ -36,7 +36,7 @@ namespace BorneAutorouteMETIER.Automate.Etats
         {
             if (e == Evenement.RESET)
             {
-                this.Metier.Reset();
+                this.Metier.Reset();    
             }
         }
 
