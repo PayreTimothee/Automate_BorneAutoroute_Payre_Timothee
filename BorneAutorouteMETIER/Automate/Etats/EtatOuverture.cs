@@ -18,7 +18,6 @@ namespace BorneAutorouteMETIER.Automate.Etats
 
         public EtatOuverture(Borne metier, Automate automate) : base(metier, automate)
         {
-            timer = null;
             if (timer == null)
             {
                 timer = new Timer(2000); //Met un timer de 2 secondes 
@@ -37,6 +36,9 @@ namespace BorneAutorouteMETIER.Automate.Etats
             if (e == Evenement.RESET)
             {
                 this.Metier.Reset();    
+            } else if (e == Evenement.DEMANDE_RECU)
+            {
+                this.Metier.ImprimerRecu();
             }
         }
 
@@ -47,6 +49,9 @@ namespace BorneAutorouteMETIER.Automate.Etats
             {
                 case Evenement.RESET:
                     etat = new EtatAttenteClient(Metier, Automate);
+                    break;
+                case Evenement.DEMANDE_RECU:
+                    etat = new EtatDemandeRecu(Metier, Automate);
                     break;
                 default:
                     etat = this;

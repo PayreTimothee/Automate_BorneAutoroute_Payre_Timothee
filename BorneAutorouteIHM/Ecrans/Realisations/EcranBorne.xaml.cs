@@ -46,6 +46,8 @@ namespace BorneAutorouteIHM.Ecrans.Realisations
             this.vueModele = borneVM;
             this.DataContext = borneVM;
 
+            this.vueModele.PropertyChanged += VueModele_PropertyChanged;
+
             InitializeComponent();
 
             //Gestion des couleurs
@@ -230,5 +232,12 @@ namespace BorneAutorouteIHM.Ecrans.Realisations
             }
         }
 
+        private void VueModele_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "NouveauRecu")
+            {
+                this.AjouterRecu();
+            }
+        }
     }
 }

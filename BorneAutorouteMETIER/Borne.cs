@@ -1,17 +1,19 @@
-﻿using BorneAutorouteEXCEPTION.Fonctionnement.Realisations;
-using BorneAutorouteMETIER.Elements;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using BorneAutorouteEXCEPTION.Fonctionnement.Realisations;
+using BorneAutorouteMETIER.Elements;
 
 namespace BorneAutorouteMETIER
 {
     /// <summary>
     /// La borne
     /// </summary>
-    public class Borne
+    public class Borne : INotifyPropertyChanged
     {
         //Ticket présent dans la machine
         private Ticket? ticket;
@@ -19,6 +21,8 @@ namespace BorneAutorouteMETIER
         private CarteBancaire? carteBancaire;
         //CarteBancaire lue par le lecteur sans contact
         private CarteBancaire? carteBancaireLueParSansContact;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
         /// Getteur du montant du ticket présent dans la machine, ou 0 si aucun ticket n'est présent
@@ -87,6 +91,16 @@ namespace BorneAutorouteMETIER
                 this.ticket.EstDansMachine = false;
             }
             this.Reset();
+        }
+
+        public void ImprimerRecu()
+        {
+            NotifyPropertyChanged("NouveauRecu");
+        }
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

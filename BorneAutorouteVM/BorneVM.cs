@@ -44,6 +44,7 @@ namespace BorneAutorouteVM
             this.metier = new Borne();
             this.automate = new Automate(this.metier);
             this.automate.PropertyChanged += Automate_PropertyChanged;
+            this.metier.PropertyChanged += Borne_PropertyChanged;
         }
 
         /// <summary>
@@ -92,6 +93,7 @@ namespace BorneAutorouteVM
         /// <returns>Action valide ou non</returns>
         public void DemandeRecu()
         {
+            this.automate.Activer(Evenement.DEMANDE_RECU);
         }
 
         /// <summary>
@@ -125,6 +127,19 @@ namespace BorneAutorouteVM
             if (e.PropertyName == "NomEtat")
             {
                 this.NotifyPropertyChanged("NomEtat");
+            }
+        }
+
+        /// <summary>
+        /// Méthode d'observation de changement de propriété de la borne. Elle notifie le changement du nouveau reçu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">l'évenement</param>
+        private void Borne_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "NouveauRecu")
+            {
+                this.NotifyPropertyChanged("NouveauRecu");
             }
         }
 

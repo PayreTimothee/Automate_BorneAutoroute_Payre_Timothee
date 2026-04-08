@@ -13,5 +13,6 @@ namespace BorneAutorouteMETIER.Automate
         RESET,
         ANNULATION,
         REESAYER_PAIEMENT,
+        DEMANDE_RECU,
     }
 }
