@@ -31,7 +31,11 @@ namespace BorneAutorouteMETIER.Automate.Etats
             switch (e)
             {
                 case Evenement.PAIEMENT_SANS_CONTACT:
-                    etat = new EtatOuverture(Metier, Automate);
+                    if (Metier.EstValide)
+                        etat = new EtatOuverture(Metier, Automate);
+                     else 
+                        etat = new EtatPaiementImpossible(Metier, Automate);
+
                     break;
                 case Evenement.ANNULATION:
                     this.Metier.Annulation();

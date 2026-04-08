@@ -26,6 +26,10 @@ namespace BorneAutorouteMETIER
         public double Montant => this.ticket?.Montant ?? 0.0;
 
         /// <summary>
+        /// Getteur de la carte bancaire présente dans la machine pour savoir si elle est valide ou non, ou null si aucune carte bancaire n'est présente
+        /// </summary>
+        public bool EstValide => this.carteBancaireLueParSansContact != null && this.carteBancaireLueParSansContact.EstValide;
+        /// <summary>
         /// Insertion d'un ticket dans la machine
         /// </summary>
         /// <param name="ticket">Ticket inséré</param>
