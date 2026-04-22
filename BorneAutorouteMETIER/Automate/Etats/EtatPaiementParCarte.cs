@@ -16,7 +16,18 @@ namespace BorneAutorouteMETIER.Automate.Etats
 
         public override string Nom => "EtatPaiementParCarte";
 
-        public override string Message => $"Carte insérée. Montant à régler : {this.Metier.Montant}";
+        public override string Message
+        {
+            get
+            {
+                string texte = "CODE: ";
+                for (int i = 0; i < this.codeSaisie.Length; i++)
+                {
+                    texte += "X";
+                }
+                return texte;
+            }
+        }
 
         public override void Action(Evenement e)
         {
