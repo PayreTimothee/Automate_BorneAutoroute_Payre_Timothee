@@ -30,9 +30,25 @@ namespace BorneAutorouteMETIER
         public double Montant => this.ticket?.Montant ?? 0.0;
 
         /// <summary>
+        /// Getteur de la présence de la carte bancaire dans la machine
+        /// </summary>
+        public bool CarteInseree => this.carteBancaire.EstDansMachine;
+
+        /// <summary>
+        /// Getteur du code de la carte bancaire présente dans la machine
+        /// </summary>
+        public string Code => this.carteBancaire?.Code;
+
+        /// <summary>
         /// Getteur de la carte bancaire présente dans la machine pour savoir si elle est valide ou non, ou null si aucune carte bancaire n'est présente
         /// </summary>
-        public bool EstValide => this.carteBancaireLueParSansContact != null && this.carteBancaireLueParSansContact.EstValide;
+        public bool EstValide => this.carteBancaireLueParSansContact != null && this.carteBancaireLueParSansContact.EstValide || this.carteBancaire != null && this.carteBancaire.EstValide;
+
+        /// <summary>
+        /// Getteur du code de la carte bancaire présente dans la machine, ou "" si aucune carte bancaire n'est présente
+        /// </summary>
+        public string ChiffreCode { get; set; } = "";
+
         /// <summary>
         /// Insertion d'un ticket dans la machine
         /// </summary>
@@ -93,6 +109,9 @@ namespace BorneAutorouteMETIER
             this.Reset();
         }
 
+        /// <summary>
+        /// Imprime le Reçu 
+        /// </summary>
         public void ImprimerRecu()
         {
             NotifyPropertyChanged("NouveauRecu");

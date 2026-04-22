@@ -65,6 +65,8 @@ namespace BorneAutorouteVM
         /// <returns>Action valide ou non</returns>
         public void InsertionCarteBancaire(CarteBancaireVM carteBancaire)
         {
+            this.metier.InsertionCarteBancaire(carteBancaire.Metier);
+            this.automate.Activer(Evenement.PAIEMENT_AVEC_CARTE_BANCAIRE);
         }
 
         /// <summary>
@@ -74,6 +76,8 @@ namespace BorneAutorouteVM
         /// <returns>Action valide ou non</returns>
         public void AjoutNumeroCode(int numero)
         {
+            this.metier.ChiffreCode = numero.ToString();
+            this.automate.Activer(Evenement.SAISIE_DU_CODE);
         }
 
         /// <summary>

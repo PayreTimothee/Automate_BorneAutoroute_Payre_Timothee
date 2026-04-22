@@ -39,6 +39,11 @@ namespace BorneAutorouteMETIER.Elements
         public bool EstValide { get => estValide;set => estValide = value; }
 
         /// <summary>
+        /// Getteur du code de la carte bancaire
+        /// </summary>
+        public string Code { get => code;}
+
+        /// <summary>
         /// Constructeur
         /// </summary>
         public CarteBancaire() 

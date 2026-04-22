@@ -42,7 +42,13 @@ namespace BorneAutorouteMETIER.Automate.Etats
             switch (e)
             {
                 case Evenement.REESAYER_PAIEMENT:
-                    etat = new EtatAttenteDePaiement(Metier, Automate);
+                    if (this.Metier.CarteInseree)
+                    {
+                        etat = new EtatPaiementParCarte(Metier, Automate, "");
+                    } else
+                    {
+                       etat = new EtatAttenteDePaiement(Metier, Automate);
+                    }
                     break;
             }
             return etat;

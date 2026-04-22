@@ -22,7 +22,10 @@ namespace BorneAutorouteMETIER.Automate.Etats
 
         public override void Action(Evenement e)
         {
-
+            if (e == Evenement.RESET)
+            {
+                this.Metier.Reset();
+            }
         }
 
         public override Etat Transition(Evenement e)
@@ -35,11 +38,13 @@ namespace BorneAutorouteMETIER.Automate.Etats
                         etat = new EtatOuverture(Metier, Automate);
                      else 
                         etat = new EtatPaiementImpossible(Metier, Automate);
-
                     break;
                 case Evenement.ANNULATION:
                     this.Metier.Annulation();
                     etat = new EtatAttenteClient(Metier, Automate);
+                    break;
+                case Evenement.PAIEMENT_AVEC_CARTE_BANCAIRE:
+                    etat = new EtatPaiementParCarte(Metier, Automate, "");
                     break;
                 default:
                     etat = this;

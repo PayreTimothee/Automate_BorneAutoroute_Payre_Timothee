@@ -14,5 +14,7 @@ namespace BorneAutorouteMETIER.Automate
         ANNULATION,
         REESAYER_PAIEMENT,
         DEMANDE_RECU,
+        PAIEMENT_AVEC_CARTE_BANCAIRE,
+        SAISIE_DU_CODE,
     }
 }
